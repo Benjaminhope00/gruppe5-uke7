@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gruppe 5 Soundboard</title>
+    <link rel="stylesheet" href="design.css">
+</head>
+<body>
+
+    <div id='app'></div>
+    
+    
+
+    <script>
+
+    // Model
+    const sounds = ['https://bit.ly/3GRvNLZ','https://bit.ly/3oU3vKw','https://bit.ly/3JsnesA','https://bit.ly/3rSaqWv'];
+    let names = ['Christian', 'Tony','Benjamin','Guro'];
+    
+
+
+    // View
+    show();
+    function show(){
+    let html = `
+    <h1>Presentasjon av gruppe 5</h1>
+    <h3>Deltagere:</h3>
+    
+    `;
+    appDiv =  document.getElementById('app');
+    for (let index = 0; index < sounds.length; index++) {
+            
+    html += `
+
+    <div class="container">
+   <button class="colorBox${index}" onclick="makeSound(${index})"><span>${names[index]}<br> 🔊</span></button>
+    </div>
+    
+    `;
+    }
+        appDiv.innerHTML = html; 
+    }
+
+    
+    // Controller 
+    function makeSound(index) {
+        const music = new Audio(sounds[index]);
+        music.play(); 
+    }
+
+
+    </script>
+    
+    
+</body>
+</html>
